@@ -201,7 +201,10 @@ static android_LogPriority filterPriForTag(AndroidLogFormat* p_format,
 LIBLOG_ABI_PUBLIC int android_log_shouldPrintLine(AndroidLogFormat* p_format,
                                                   const char* tag,
                                                   android_LogPriority pri) {
-  return pri >= filterPriForTag(p_format, tag);
+    if (!strncmp(tag, "QCamera", 7) || !strncmp(tag, "WCNSS_FILTER", 12) || !strncmp(tag, "mm-3a-core", 10) || !strncmp(tag, "AEC_PORT", 8) || !strncmp(tag, "mm-camera", 9) || !strncmp(tag, "GalleryDatab", 12))
+        return 0;
+    else
+        return pri >= filterPriForTag(p_format, tag);
 }
 
 LIBLOG_ABI_PUBLIC AndroidLogFormat* android_log_format_new() {
