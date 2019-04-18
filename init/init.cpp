@@ -655,6 +655,11 @@ int main(int argc, char** argv) {
     InitKernelLogging(argv);
     LOG(INFO) << "init second stage started!";
 
+    // Set init and its forked children's oom_adj.
+    if (auto result = WriteFile("/proc/1/oom_score_adj", "-1000"); !result) {
+        LOG(ERROR) << "Unable to write -1000 to /proc/1/oom_score_adj: " << result.error();
+    }
+
     // Set up a session keyring that all processes will have access to. It
     // will hold things like FBE encryption keys. No process should override
     // its session keyring.

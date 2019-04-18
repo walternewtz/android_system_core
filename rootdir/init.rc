@@ -12,9 +12,6 @@ import /init.usb.configfs.rc
 import /init.${ro.zygote}.rc
 
 on early-init
-    # Set init and its forked children's oom_adj.
-    write /proc/1/oom_score_adj -1000
-
     # Disable sysrq from keyboard
     write /proc/sys/kernel/sysrq 0
 
