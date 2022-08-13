@@ -1088,6 +1088,7 @@ static void SetSafetyNetProps() {
     InitPropertySet("ro.vendor.warranty_bit", "0");
     InitPropertySet("vendor.boot.vbmeta.device_state", "locked");
     InitPropertySet("vendor.boot.verifiedbootstate", "green");
+    InitPropertySet("vendor.boot.veritymode", "enforcing");
 }
 
 void PropertyInit() {
