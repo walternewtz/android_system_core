@@ -1278,6 +1278,7 @@ static void SetSafetyNetProps() {
     InitPropertySet("ro.vendor.warranty_bit", "0");
     InitPropertySet("vendor.boot.vbmeta.device_state", "locked");
     InitPropertySet("vendor.boot.verifiedbootstate", "green");
+    InitPropertySet("ro.build.version.security_patch", "2020-12-01");
 
 }
 
